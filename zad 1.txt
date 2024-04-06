@@ -1,0 +1,36 @@
+// Funkcja do obliczania średniej arytmetycznej
+function obliczSrednia(oceny) {
+    const sum = oceny.reduce((a, b) => a + b, 0);
+    return sum / oceny.length;
+}
+
+// Główna funkcja programu
+function main() {
+    console.log("Witaj w programie do obliczania średniej ocen!");
+
+    const iloscPrzedmiotow = parseInt(prompt("Podaj ilość przedmiotów: "));
+    const przedmioty = [];
+    const oceny = [];
+
+    // Pobieranie ocen dla poszczególnych przedmiotów
+    for (let i = 0; i < iloscPrzedmiotow; i++) {
+        const przedmiot = prompt(`Podaj nazwę przedmiotu ${i + 1}: `);
+        przedmioty.push(przedmiot);
+
+        const ocena = parseFloat(prompt(`Podaj ocenę z przedmiotu ${przedmiot}: `));
+        oceny.push(ocena);
+    }
+
+    // Obliczanie średniej arytmetycznej ocen
+    const srednia = obliczSrednia(oceny);
+
+    // Wyświetlanie wyników
+    console.log("\nŚrednia ocen:");
+    for (let i = 0; i < iloscPrzedmiotow; i++) {
+        console.log(`${przedmioty[i]}: ${oceny[i]}`);
+    }
+    console.log(`Średnia: ${srednia}`);
+}
+
+// Wywołanie głównej funkcji programu
+main();
